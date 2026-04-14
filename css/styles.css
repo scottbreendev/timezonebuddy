@@ -1,0 +1,157 @@
+/* ============================================================
+   Time Zone Buddy — Website Styles
+   Single source of truth: docs/website_AI_instructions.md
+   ============================================================ */
+
+/* ── Custom Properties ────────────────────────────────────── */
+
+:root {
+  /* Light mode */
+  --color-bg:             #F0F7FD;
+  --color-surface:        #FFFFFF;
+  --color-surface-raised: #E8F4FD;
+  --color-border:         #C8DFF0;
+  --color-text-primary:   #0D1B3E;
+  --color-text-secondary: #3A5A7A;
+  --color-text-muted:     #7A9AB8;
+  --color-brand:          #2E88D4;
+  --color-brand-hover:    #1A6CB8;
+  --color-accent:         #2ECAD4;
+  --color-premium:        #9B6DFF;
+  --color-amber:          #F5A623;
+
+  /* Gradients */
+  --gradient-hero:     135deg, #0A1E40, #0D2A50, #0A3060, #06081A;
+  --gradient-plus:     135deg, #2E88D4, #2ECAD4;
+  --gradient-lifetime: 135deg, #F5A623, #E8703A;
+  --gradient-aurora:   135deg, #1A3A6E, #2E88D4, #2ECAD4, #0D1A3A;
+}
+
+.dark {
+  --color-bg:             #06081A;
+  --color-surface:        #0D1428;
+  --color-surface-raised: #152035;
+  --color-border:         #1E3050;
+  --color-text-primary:   #E8F4FD;
+  --color-text-secondary: #A8C8E8;
+  --color-text-muted:     #5A7A9A;
+  --color-brand:          #2E88D4;
+  --color-brand-hover:    #4AA8F4;
+  --color-accent:         #2ECAD4;
+  --color-premium:        #9B6DFF;
+  --color-amber:          #F5A623;
+}
+
+/* ── Base ─────────────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* ── Device Frame ─────────────────────────────────────────── */
+
+.device-frame {
+  position: relative;
+  width: var(--frame-width, 260px);
+  aspect-ratio: 1470 / 3000;
+  flex-shrink: 0;
+  filter: drop-shadow(0 25px 50px rgb(0 0 0 / 0.32));
+}
+
+.device-frame-sm { --frame-width: 200px; }
+
+.device-screen-clip {
+  position: absolute;
+  top: 2.233%;
+  left: 5.102%;
+  width: 89.796%;
+  height: 95.533%;
+  overflow: hidden;
+  border-radius: 13% / 6%;
+}
+
+.device-screenshot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.device-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Carousel ─────────────────────────────────────────────── */
+
+.carousel-wrapper { overflow: hidden; }
+
+.carousel-stack {
+  display: grid;
+  justify-items: center;
+  padding: 1rem 0 1.5rem;
+}
+
+.carousel-slide {
+  grid-column: 1;
+  grid-row: 1;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ── Coming Soon Buttons ──────────────────────────────────── */
+
+.btn-coming-soon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-surface-raised);
+  color: var(--color-text-muted);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 14px;
+  border: 1.5px solid var(--color-border);
+  cursor: default;
+  user-select: none;
+}
+
+.btn-coming-soon-light {
+  background-color: var(--color-surface-raised);
+  color: var(--color-text-muted);
+  border-color: var(--color-border);
+}
+
+/* ── Focus Visible (Accessibility) ───────────────────────── */
+
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Utility: Hero Gradient Background ────────────────────── */
+
+.bg-hero {
+  background: linear-gradient(var(--gradient-hero));
+}
+
+.bg-aurora {
+  background: linear-gradient(var(--gradient-aurora));
+}

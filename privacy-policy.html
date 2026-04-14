@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" x-data="themeToggle" x-init="init()">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Time Zone Buddy</title>
+  <meta name="description" content="Time Zone Buddy collects no personal data. Read our full privacy policy, including how we use Firebase Analytics for anonymous aggregate usage insights." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Privacy Policy — Time Zone Buddy" />
+  <meta property="og:description" content="Time Zone Buddy collects no personal data. Read our full privacy policy." />
+  <meta property="og:image" content="images/og-image.png" />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="" /><!-- TODO: set to GitHub Pages URL once live -->
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/app.js"></script>
+</head>
+
+<body class="bg-[var(--color-bg)]" :class="{ dark: dark }">
+
+  <!-- ── Navigation ──────────────────────────────────────── -->
+  <nav x-data="stickyNav" x-init="init()"
+       class="fixed top-0 inset-x-0 z-50 bg-[var(--color-surface)] shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2 font-bold text-[var(--color-text-primary)]">
+        <img src="images/icon.png" alt="" class="w-6 h-6 rounded-lg" aria-hidden="true" />
+        Time Zone Buddy
+      </a>
+
+      <!-- Desktop nav links -->
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-[var(--color-text-secondary)]">
+        <a href="index.html#features" class="hover:text-[var(--color-brand)] transition-colors">Features</a>
+        <a href="index.html#plans"    class="hover:text-[var(--color-brand)] transition-colors">Plans</a>
+        <a href="index.html#faq"      class="hover:text-[var(--color-brand)] transition-colors">FAQ</a>
+        <a href="support.html"        class="hover:text-[var(--color-brand)] transition-colors">Support</a>
+      </div>
+
+      <!-- Right controls -->
+      <div class="flex items-center gap-2">
+        <!-- Dark/light toggle -->
+        <button @click="toggle()" aria-label="Toggle dark mode"
+                class="p-2 rounded-lg text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors">
+          <svg x-show="!dark" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>
+          <svg x-show="dark"  class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+
+        <!-- Instagram — always visible, even on mobile -->
+        <a href="https://www.instagram.com/timezonebuddy/" target="_blank" rel="noopener noreferrer"
+           aria-label="Time Zone Buddy on Instagram"
+           class="p-2 rounded-lg text-[var(--color-text-muted)] hover:text-[var(--color-brand)] transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4.5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+
+        <!-- Mobile hamburger -->
+        <button @click="menuOpen = !menuOpen" class="md:hidden p-2 text-[var(--color-text-muted)]" aria-label="Toggle menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path x-show="!menuOpen" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            <path x-show="menuOpen"  stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu dropdown -->
+    <div x-show="menuOpen" x-transition class="md:hidden bg-[var(--color-surface)] border-t border-[var(--color-border)] px-4 pb-4">
+      <a href="index.html#features" @click="menuOpen=false" class="block py-3 text-[var(--color-text-secondary)] hover:text-[var(--color-brand)]">Features</a>
+      <a href="index.html#plans"    @click="menuOpen=false" class="block py-3 text-[var(--color-text-secondary)] hover:text-[var(--color-brand)]">Plans</a>
+      <a href="index.html#faq"      @click="menuOpen=false" class="block py-3 text-[var(--color-text-secondary)] hover:text-[var(--color-brand)]">FAQ</a>
+      <a href="support.html"        @click="menuOpen=false" class="block py-3 text-[var(--color-text-secondary)] hover:text-[var(--color-brand)]">Support</a>
+    </div>
+  </nav>
+
+  <main class="pt-16">
+
+    <!-- ── Page Hero ─────────────────────────────────────── -->
+    <div class="bg-[var(--color-surface)] border-b border-[var(--color-border)] py-12 text-center">
+      <nav aria-label="Breadcrumb" class="text-sm text-[var(--color-text-muted)] mb-4">
+        <a href="index.html" class="hover:text-[var(--color-brand)]">Home</a>
+        <span class="mx-2">/</span>
+        <span class="text-[var(--color-text-primary)]">Privacy Policy</span>
+      </nav>
+      <h1 class="text-4xl font-extrabold text-[var(--color-text-primary)]">Privacy Policy</h1>
+      <p class="mt-2 text-[var(--color-text-muted)] text-sm">
+        Effective date: 28 March 2026 &middot; Last updated: 29 March 2026
+      </p>
+    </div>
+
+    <!-- ── Table of Contents ──────────────────────────────── -->
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 pt-10">
+      <div class="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl p-6 text-sm">
+        <p class="font-semibold text-[var(--color-text-primary)] mb-3">Contents</p>
+        <ol class="space-y-1 text-[var(--color-text-secondary)] list-decimal list-inside columns-2 gap-x-6">
+          <li><a href="#overview"      class="hover:text-[var(--color-brand)]">Overview</a></li>
+          <li><a href="#data-used"     class="hover:text-[var(--color-brand)]">What Data the App Uses</a></li>
+          <li><a href="#not-collected" class="hover:text-[var(--color-brand)]">Data We Do NOT Collect</a></li>
+          <li><a href="#third-party"   class="hover:text-[var(--color-brand)]">Third-Party Services</a></li>
+          <li><a href="#children"      class="hover:text-[var(--color-brand)]">Children's Privacy</a></li>
+          <li><a href="#retention"     class="hover:text-[var(--color-brand)]">Data Retention &amp; Deletion</a></li>
+          <li><a href="#transfers"     class="hover:text-[var(--color-brand)]">International Data Transfers</a></li>
+          <li><a href="#rights"        class="hover:text-[var(--color-brand)]">Your Rights</a></li>
+          <li><a href="#security"      class="hover:text-[var(--color-brand)]">Security</a></li>
+          <li><a href="#changes"       class="hover:text-[var(--color-brand)]">Changes to This Policy</a></li>
+          <li><a href="#contact"       class="hover:text-[var(--color-brand)]">Contact</a></li>
+          <li><a href="#gdpr"          class="hover:text-[var(--color-brand)]">GDPR (EU Users)</a></li>
+          <li><a href="#ccpa"          class="hover:text-[var(--color-brand)]">CCPA (California)</a></li>
+          <li><a href="#nutrition"     class="hover:text-[var(--color-brand)]">App Store Nutrition Label</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- ── Content ───────────────────────────────────────── -->
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 py-10 space-y-12 text-[var(--color-text-secondary)] text-base leading-relaxed">
+
+      <!-- §1 Overview -->
+      <section id="overview">
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">1. Overview</h2>
+        <p class="font-semibold text-[var(--color-text-primary)] text-lg">Time Zone Buddy does not collect, store, transmit, or sell your personal information.</p>
+        <p class="mt-3">The App is designed with a privacy-first philosophy. All data you enter — time zones, work hours, groups, and preferences — stays on your device. We have no backend servers, no user accounts, and no advertising SDKs.</p>
+        <p class="mt-3">The App uses <strong class="text-[var(--color-text-primary)]">Firebase Analytics</strong> (by Google) solely to understand aggregate usage patterns — such as which features are used and how often — so we can improve the app. Firebase Analytics does <strong>not</strong> link any data to your identity, and we do not use it for advertising, profiling, or selling data. See <a href="#firebase" class="text-[var(--color-brand)] hover:underline">§2.7</a> for full details.</p>
+      </section>
+
+      <!-- §2 What data the app uses -->
+      <section id="data-used">
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">2. What Data the App Uses</h2>
+
+        <h3 class="font-semibold text-[var(--color-text-primary)] mt-6 mb-2" id="data-you-enter">2.1 Data You Enter</h3>
+        <p>The App stores the following data <strong>locally on your device only</strong>:</p>
+        <ul class="mt-2 list-disc list-inside space-y-1 text-sm">
+          <li>Time zones you add to your list</li>
+          <li>Work hours you configure for each zone</li>
+          <li>Groups you create and their members</li>
+          <li>App preferences (sort order, appearance, 24-hour time, notification settings)</li>
+          <li>Display labels you apply to zones</li>
+        </ul>
+        <p class="mt-3 text-sm">This data is stored in your device's local storage (UserDefaults / on-device JSON). It never leaves your device unless you explicitly enable iCloud Sync (see <a href="#icloud" class="text-[var(--color-brand)] hover:underline">§2.3</a>).</p>
+
+        <h3 class="font-semibold text-[var(--color-text-primary)] mt-6 mb-2" id="location">2.2 Location Data</h3>
+        <p>The App <strong>does not</strong> request or use your device's GPS location.</p>
+        <p class="mt-2 text-sm">Time zones are derived solely from your explicit searches, your device's system timezone setting, and MapKit city search results (address/timezone lookup only — no GPS involved). MapKit search is handled by Apple's servers, subject to <a href="https://www.apple.com/legal/privacy/" class="text-[var(--color-brand)] hover:underline">Apple's Privacy Policy</a>.</p>
+
+        <h3 class="font-semibold text-[var(--color-text-primary)] mt-6 mb-2" id="icloud">2.3 iCloud Sync (Plus Tier Only)</h3>
+        <p class="text-sm">If you subscribe to Time Zone Buddy Plus and enable iCloud Sync, your time zone list and groups are synced across your Apple devices using <strong>Apple's iCloud Key-Value Storage (NSUbiquitousKeyValueStore)</strong>.</p>
+        <div class="mt-4 overflow-x-auto">
+          <table class="w-full text-sm border-collapse border border-[var(--color-border)] rounded-xl overflow-hidden">
+            <tbody class="divide-y divide-[var(--color-border)]">
+              <tr class="bg-[var(--color-surface-raised)]">
+                <td class="px-4 py-3 font-medium text-[var(--color-text-primary)] w-1/3">Uploaded to our servers?</td>
+                <td class="px-4 py-3">No</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-medium text-[var(--color-text-primary)]">Where stored?</td>
+                <td class="px-4 py-3">Your personal iCloud account (Apple's infrastructure)</td>
+              </tr>
+              <tr class="bg-[var(--color-surface-raised)]">
+                <td class="px-4 py-3 font-medium text-[var(--color-text-primary)]">Who can access it?</td>
+                <td class="px-4 py-3">Only you, via your Apple ID</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-medium text-[var(--color-text-primary)]">How to disable?</td>
+                <td class="px-4 py-3">Settings → Sync → disable iCloud Sync within the app</td>
+              </tr>
+              <tr class="bg-[var(--color-surface-raised)]">
+                <td class="px-4 py-3 font-medium text-[var(--color-text-primary)]">How to remove?</td>
+                <td class="px-4 py-3">Delete the app, or go to iOS Settings → Apple ID → iCloud → Manage Storage → Time Zone Buddy → Delete Data</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="font-semibold text-[var(--color-text-primary)] mt-6 mb-2" id="notifications">2.4 Notifications</h3>
+        <p class="text-sm">If you enable DST notifications (Lifetime/Plus tier), the App schedules local notifications on your device using Apple's <code class="bg-[var(--color-surface-raised)] px-1 rounded text-xs">UNUserNotificationCenter</code> framework. Notifications are scheduled <strong>entirely on-device</strong> — no network request is made. Manage permissions in iOS Settings → Time Zone Buddy → Notifications.</p>
+
+        <h3 class="font-semibold text-[var(--color-text-primary)] mt-6 mb-2" id="purchases">2.5 In-App Purchases</h3>
+        <p class="text-sm">Purchases (Lifetime, Plus Monthly, Plus Annual) are processed entirely by Apple's App Store using StoreKit 2. We do not handle payment information. Subject to <a href="https://www.apple.com/legal/privacy/" class="text-[var(--color-brand)] hover:underline">Apple's App Store Privacy Policy</a>.</p>
+
+        <h3 class="font-semibold text-[var(--color-text-primary)] mt-6 mb-2" id="mapkit">2.6 MapKit</h3>
+        <p class="text-sm">The Detail view shows a city map thumbnail powered by MapKit (Apple Maps). Map tiles are fetched from Apple's servers when a detail view is opened. The only data sent to Apple is the geographic coordinate of the timezone city. No personal data is sent. Subject to <a href="https://www.apple.com/legal/privacy/" class="text-[var(--color-brand)] hover:underline">Apple's Privacy Policy</a>.</p>
+
+        <!-- Firebase Analytics — §2.7 -->
+        <h3 class="font-semibold text-[var(--color-text-primary)] mt-6 mb-2" id="firebase">2.7 Firebase Analytics (Google)</h3>
+        <div class="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl p-5 mt-3 space-y-4 text-sm">
+          <p>The App uses <strong class="text-[var(--color-text-primary)]">Firebase Analytics</strong> (provided by Google LLC) to collect <strong>anonymous, aggregate usage data</strong> to help us understand how the app is used and to improve it.</p>
+
+          <div>
+            <p class="font-semibold text-[var(--color-text-primary)] mb-2">What Firebase Analytics collects</p>
+            <ul class="list-disc list-inside space-y-1">
+              <li><strong>App events</strong> — actions taken in the app (e.g. "zone added", "meeting overlap run", "purchase completed", "onboarding completed"). Events use Google's <a href="https://support.google.com/analytics/answer/9267735" class="text-[var(--color-brand)] hover:underline">recommended event taxonomy</a>.</li>
+              <li><strong>App version and OS version</strong> — to understand compatibility</li>
+              <li><strong>Device category</strong> — phone or tablet (not a unique identifier)</li>
+              <li><strong>Session data</strong> — aggregate session counts and duration</li>
+              <li><strong>Country / region</strong> — derived from IP address at collection time; the IP itself is not retained</li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="font-semibold text-[var(--color-text-primary)] mb-2">What Firebase Analytics does NOT collect</p>
+            <ul class="space-y-1">
+              <li class="flex gap-2"><span class="text-red-400 font-bold">✗</span> Your name or any contact details</li>
+              <li class="flex gap-2"><span class="text-red-400 font-bold">✗</span> Your device's advertising identifier (IDFA) — ad personalisation is disabled</li>
+              <li class="flex gap-2"><span class="text-red-400 font-bold">✗</span> Your precise location (GPS)</li>
+              <li class="flex gap-2"><span class="text-red-400 font-bold">✗</span> The content of your time zones, groups, or work hours</li>
+              <li class="flex gap-2"><span class="text-red-400 font-bold">✗</span> Any data that identifies you personally</li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="font-semibold text-[var(--color-text-primary)] mb-2">How the data is used</p>
+            <ul class="list-disc list-inside space-y-1">
+              <li>To understand which features are popular and which need improvement</li>
+              <li>To measure the success of new features</li>
+              <li>To count installs and active users in aggregate</li>
+            </ul>
+            <p class="mt-2">We do <strong>not</strong> use Firebase Analytics data for advertising, profiling, or sale to third parties.</p>
+          </div>
+
+          <div>
+            <p class="font-semibold text-[var(--color-text-primary)] mb-2">Data handling &amp; opt-out</p>
+            <p>Firebase Analytics data is processed by Google LLC in accordance with <a href="https://policies.google.com/privacy" class="text-[var(--color-brand)] hover:underline">Google's Privacy Policy</a> and the <a href="https://firebase.google.com/support/privacy" class="text-[var(--color-brand)] hover:underline">Firebase Privacy and Security documentation</a>. Data is retained for the default Firebase Analytics retention period (14 months) and then automatically deleted.</p>
+            <p class="mt-2">You can opt out of analytics data collection by enabling <strong>Limit Ad Tracking</strong> in iOS Settings → Privacy &amp; Security → Tracking, or by using Apple's App Privacy Report feature.</p>
+          </div>
+        </div>
+
+        <h3 class="font-semibold text-[var(--color-text-primary)] mt-6 mb-2" id="sunrisesunset">2.8 SunriseSunset.io (Solar Data)</h3>
+        <p class="text-sm">The App fetches sunrise, sunset, golden hour, and blue hour times from <strong class="text-[var(--color-text-primary)]">SunriseSunset.io</strong> — a free, open-source solar data API.</p>
+        <ul class="mt-2 list-disc list-inside space-y-1 text-sm">
+          <li>The only data sent is the <strong>geographic coordinate</strong> (latitude/longitude) of a location you have added and the <strong>date range</strong> being fetched</li>
+          <li>No personal data, device identifiers, or account information is sent</li>
+          <li>Data is fetched once per year per location and cached locally on your device — it is not synced to iCloud and is excluded from device backup</li>
+          <li>No data passes through our servers</li>
+        </ul>
+        <p class="mt-2 text-sm">Provider: <a href="https://sunrisesunset.io" class="text-[var(--color-brand)] hover:underline">sunrisesunset.io</a></p>
+
+        <h3 class="font-semibold text-[var(--color-text-primary)] mt-6 mb-2" id="nagerdate">2.9 Nager.Date (Public Holiday Data — Lifetime/Plus only)</h3>
+        <p class="text-sm">For Lifetime and Plus subscribers, the App fetches public holiday data from <strong class="text-[var(--color-text-primary)]">Nager.Date</strong> — a free, open-source public holiday API (MIT licence).</p>
+        <ul class="mt-2 list-disc list-inside space-y-1 text-sm">
+          <li>The only data sent is the <strong>ISO country code</strong> (e.g. "AU", "US") of locations you have added and the <strong>calendar year</strong> being fetched</li>
+          <li>No personal data, device identifiers, or account information is sent</li>
+          <li>Holiday data is fetched once per year per country and cached locally on your device — it is not synced to iCloud and is excluded from device backup</li>
+          <li>A <strong>weekly version check</strong> is also performed — the App sends each cached country code to Nager.Date's version endpoint to see if their data has been updated; if so, the cache is refreshed automatically so corrections reach you without waiting for the next annual cycle</li>
+          <li>No data passes through our servers</li>
+        </ul>
+        <p class="mt-2 text-sm">Provider: <a href="https://date.nager.at" class="text-[var(--color-brand)] hover:underline">date.nager.at</a></p>
+
+      </section>
+
+      <!-- §3 Not collected -->
+      <section id="not-collected">
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">3. Data We Do NOT Collect</h2>
+        <p>We explicitly do <strong>not</strong> collect or use:</p>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li class="flex gap-2"><span class="text-red-400 font-bold">✗</span> Names, email addresses, or contact details</li>
+          <li class="flex gap-2"><span class="text-red-400 font-bold">✗</span> Device advertising identifiers (IDFA, IDFV) — ad personalisation is disabled</li>
+          <li class="flex gap-2"><span class="text-red-400 font-bold">✗</span> Personal analytics linked to your identity</li>
+          <li class="flex gap-2"><span class="text-red-400 font-bold">✗</span> Crash reports sent to third-party services</li>
+          <li class="flex gap-2"><span class="text-red-400 font-bold">✗</span> GPS or precise location</li>
+          <li class="flex gap-2"><span class="text-red-400 font-bold">✗</span> Contacts, calendar, or health data</li>
+          <li class="flex gap-2"><span class="text-red-400 font-bold">✗</span> Microphone, camera, or Face ID data</li>
+          <li class="flex gap-2"><span class="text-red-400 font-bold">✗</span> The content of your time zones, groups, or preferences (Firebase only receives event names, not your data)</li>
+        </ul>
+      </section>
+
+      <!-- §4 Third-party services -->
+      <section id="third-party">
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">4. Third-Party Services</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm border-collapse border border-[var(--color-border)]">
+            <thead>
+              <tr class="bg-[var(--color-surface-raised)] border-b border-[var(--color-border)]">
+                <th class="text-left px-4 py-3 font-semibold text-[var(--color-text-primary)]">Service</th>
+                <th class="text-left px-4 py-3 font-semibold text-[var(--color-text-primary)]">Provider</th>
+                <th class="text-left px-4 py-3 font-semibold text-[var(--color-text-primary)]">Purpose</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[var(--color-border)]">
+              <tr><td class="px-4 py-3 font-medium">MapKit</td><td class="px-4 py-3">Apple</td><td class="px-4 py-3">City map thumbnails in Detail view</td></tr>
+              <tr class="bg-[var(--color-surface-raised)]"><td class="px-4 py-3 font-medium">MKLocalSearch</td><td class="px-4 py-3">Apple</td><td class="px-4 py-3">City/address search when adding zones</td></tr>
+              <tr><td class="px-4 py-3 font-medium">iCloud KV Store</td><td class="px-4 py-3">Apple</td><td class="px-4 py-3">Optional sync for Plus subscribers</td></tr>
+              <tr class="bg-[var(--color-surface-raised)]"><td class="px-4 py-3 font-medium">App Store / StoreKit</td><td class="px-4 py-3">Apple</td><td class="px-4 py-3">In-app purchases</td></tr>
+              <tr><td class="px-4 py-3 font-medium">UNUserNotificationCenter</td><td class="px-4 py-3">Apple</td><td class="px-4 py-3">Local DST notifications (on-device only)</td></tr>
+              <tr class="bg-[var(--color-surface-raised)]">
+                <td class="px-4 py-3 font-medium">Firebase Analytics</td>
+                <td class="px-4 py-3">
+                  Google LLC<br/>
+                  <a href="https://policies.google.com/privacy" class="text-[var(--color-brand)] hover:underline text-xs">Privacy Policy</a>
+                  &middot;
+                  <a href="https://firebase.google.com/support/privacy" class="text-[var(--color-brand)] hover:underline text-xs">Firebase Privacy</a>
+                </td>
+                <td class="px-4 py-3">Anonymous aggregate usage analytics — no personal data collected</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-medium">SunriseSunset.io</td>
+                <td class="px-4 py-3">
+                  SunriseSunset.io<br/>
+                  <a href="https://sunrisesunset.io" class="text-[var(--color-brand)] hover:underline text-xs">sunrisesunset.io</a>
+                </td>
+                <td class="px-4 py-3">Solar data (sunrise, sunset, golden/blue hour) — coordinate + date sent only; no personal data</td>
+              </tr>
+              <tr class="bg-[var(--color-surface-raised)]">
+                <td class="px-4 py-3 font-medium">Nager.Date</td>
+                <td class="px-4 py-3">
+                  Nager.Date (MIT licence)<br/>
+                  <a href="https://date.nager.at" class="text-[var(--color-brand)] hover:underline text-xs">date.nager.at</a>
+                </td>
+                <td class="px-4 py-3">Public holiday data (Lifetime/Plus only) — ISO country code + year sent on fetch; weekly version check sends country code only; no personal data</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- §5 Children -->
+      <section id="children">
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">5. Children's Privacy</h2>
+        <p class="text-sm">The App has an age rating of <strong>4+</strong> on the App Store. It does not collect any personal data from anyone, including children under 13 (or under 16 in the EU). Firebase Analytics is configured without advertising identifiers and does not collect any personally identifiable information. COPPA and GDPR children's provisions are satisfied.</p>
+      </section>
+
+      <!-- §6 Retention -->
+      <section id="retention">
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">6. Data Retention and Deletion</h2>
+        <div class="space-y-3 text-sm">
+          <p><strong class="text-[var(--color-text-primary)]">On-device data:</strong> All data stored locally is deleted when you uninstall the App.</p>
+          <div>
+            <p><strong class="text-[var(--color-text-primary)]">iCloud data (Plus subscribers):</strong> Synced data in your iCloud account is controlled by you. To delete it:</p>
+            <ol class="list-decimal list-inside mt-2 space-y-1 ml-2">
+              <li>Uninstall Time Zone Buddy from all your devices</li>
+              <li>Go to iOS Settings → [Your Name] → iCloud → Manage Storage → Time Zone Buddy → Delete Data</li>
+            </ol>
+          </div>
+          <p><strong class="text-[var(--color-text-primary)]">Firebase Analytics data:</strong> Retained for 14 months by Google, then automatically deleted. We have no ability to delete individual event records from Firebase, as no data is linked to your identity.</p>
+          <p>There is no "delete my account" flow because there is no account. Uninstalling the App removes all local data.</p>
+        </div>
+      </section>
+
+      <!-- §7 International transfers -->
+      <section id="transfers">
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">7. International Data Transfers</h2>
+        <div class="space-y-3 text-sm">
+          <p><strong class="text-[var(--color-text-primary)]">On-device data:</strong> Not transferred.</p>
+          <p><strong class="text-[var(--color-text-primary)]">iCloud data:</strong> Transferred between your devices via Apple's infrastructure, subject to Apple's GDPR compliance.</p>
+          <p><strong class="text-[var(--color-text-primary)]">Firebase Analytics data:</strong> Processed by Google LLC, which may involve transfers to the United States and other countries. Google complies with applicable data transfer frameworks including EU Standard Contractual Clauses. See <a href="https://policies.google.com/privacy/frameworks" class="text-[var(--color-brand)] hover:underline">Google's data transfer documentation</a> for details.</p>
+        </div>
+      </section>
+
+      <!-- §8 Rights -->
+      <section id="rights">
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">8. Your Rights</h2>
+        <div class="space-y-3 text-sm">
+          <p>Because we collect no personally identifiable data, there is nothing to access, correct, export, or delete from our systems.</p>
+          <p><strong class="text-[var(--color-text-primary)]">For Firebase Analytics data:</strong> as no data is linked to your identity, individual record deletion is not possible. You can opt out of future collection by enabling <strong>Limit Ad Tracking</strong> in iOS Settings → Privacy &amp; Security → Tracking.</p>
+          <p>If you have questions about data held by Apple (iCloud, App Store), refer to Apple's privacy contact at <a href="https://privacy.apple.com" class="text-[var(--color-brand)] hover:underline">privacy.apple.com</a>.</p>
+        </div>
+      </section>
+
+      <!-- §9 Security -->
+      <section id="security">
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">9. Security</h2>
+        <p class="text-sm">All data is stored on your device using standard iOS security (encrypted at rest when the device is locked). iCloud data is encrypted in transit and at rest by Apple. Firebase Analytics data is transmitted over HTTPS.</p>
+        <p class="mt-2 text-sm">We have no backend servers that could be breached to expose your personal data.</p>
+      </section>
+
+      <!-- §10 Changes -->
+      <section id="changes">
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">10. Changes to This Policy</h2>
+        <p class="text-sm">We may update this Privacy Policy from time to time. The "Last updated" date at the top of this document will reflect any changes. We will not retroactively apply changes to collect data that we don't currently collect.</p>
+        <p class="mt-2 text-sm">If we introduce new data collection beyond what is described here, we will clearly communicate this to users before the change takes effect, and obtain consent where required by law.</p>
+      </section>
+
+      <!-- §11 Contact -->
+      <section id="contact">
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">11. Contact</h2>
+        <p class="text-sm">If you have questions or concerns about this Privacy Policy or the App's privacy practices, please contact us:</p>
+        <div class="mt-3 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl p-5 text-sm space-y-2">
+          <p><strong class="text-[var(--color-text-primary)]">Email:</strong> <a href="mailto:scott.breen.dev@outlook.com" class="text-[var(--color-brand)] hover:underline">scott.breen.dev@outlook.com</a></p>
+          <p><strong class="text-[var(--color-text-primary)]">Support page:</strong> <a href="support.html" class="text-[var(--color-brand)] hover:underline">timezonebuddy support</a></p>
+        </div>
+      </section>
+
+      <!-- §12 GDPR -->
+      <section id="gdpr">
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">12. Legal Basis (GDPR — EU Users)</h2>
+        <p class="text-sm mb-3">For users in the European Economic Area (EEA) and United Kingdom:</p>
+        <ul class="space-y-3 text-sm">
+          <li><strong class="text-[var(--color-text-primary)]">On-device data:</strong> No legal basis required — processing occurs entirely on your device under your control.</li>
+          <li><strong class="text-[var(--color-text-primary)]">iCloud Sync:</strong> Any processing by Apple is governed by Apple's Data Processing Agreement with EU Standard Contractual Clauses.</li>
+          <li><strong class="text-[var(--color-text-primary)]">Firebase Analytics:</strong> Processed under our <strong>legitimate interest</strong> in understanding aggregate app usage to improve the product (Article 6(1)(f) GDPR). No personal data is processed; no individual profiling occurs. You can opt out at any time via iOS Settings → Privacy &amp; Security → Tracking.</li>
+        </ul>
+      </section>
+
+      <!-- §13 CCPA -->
+      <section id="ccpa">
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">13. California Privacy Rights (CCPA)</h2>
+        <p class="text-sm">For California residents: We do not sell personal information. We do not share personal information for cross-context behavioural advertising. Firebase Analytics data collected is not linked to your identity and is not "personal information" under CCPA. There is no personal information to access, delete, or correct because none is collected.</p>
+      </section>
+
+      <!-- §14 Nutrition Label -->
+      <section id="nutrition">
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">14. App Store Privacy Nutrition Label</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm border-collapse border border-[var(--color-border)]">
+            <thead>
+              <tr class="bg-[var(--color-surface-raised)] border-b border-[var(--color-border)]">
+                <th class="text-left px-4 py-3 font-semibold text-[var(--color-text-primary)]">Category</th>
+                <th class="text-left px-4 py-3 font-semibold text-[var(--color-text-primary)]">Collected</th>
+                <th class="text-left px-4 py-3 font-semibold text-[var(--color-text-primary)]">Linked to Identity</th>
+                <th class="text-left px-4 py-3 font-semibold text-[var(--color-text-primary)]">Used for Tracking</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[var(--color-border)]">
+              <tr><td class="px-4 py-3">Contact Info</td><td class="px-4 py-3 text-red-400">✗ No</td><td class="px-4 py-3 text-[var(--color-text-muted)]">—</td><td class="px-4 py-3 text-[var(--color-text-muted)]">—</td></tr>
+              <tr class="bg-[var(--color-surface-raised)]"><td class="px-4 py-3">Location</td><td class="px-4 py-3 text-red-400">✗ No</td><td class="px-4 py-3 text-[var(--color-text-muted)]">—</td><td class="px-4 py-3 text-[var(--color-text-muted)]">—</td></tr>
+              <tr><td class="px-4 py-3">Identifiers</td><td class="px-4 py-3 text-red-400">✗ No</td><td class="px-4 py-3 text-[var(--color-text-muted)]">—</td><td class="px-4 py-3 text-[var(--color-text-muted)]">—</td></tr>
+              <tr class="bg-[var(--color-surface-raised)]"><td class="px-4 py-3">Purchases</td><td class="px-4 py-3 text-green-500">✓ Yes (by Apple)</td><td class="px-4 py-3">Apple ID only</td><td class="px-4 py-3 text-red-400">✗ No</td></tr>
+              <tr><td class="px-4 py-3">Usage Data</td><td class="px-4 py-3 text-green-500">✓ Yes (Firebase)</td><td class="px-4 py-3 text-red-400">✗ Not linked</td><td class="px-4 py-3 text-red-400">✗ No</td></tr>
+              <tr class="bg-[var(--color-surface-raised)]"><td class="px-4 py-3">Diagnostics</td><td class="px-4 py-3 text-red-400">✗ No</td><td class="px-4 py-3 text-[var(--color-text-muted)]">—</td><td class="px-4 py-3 text-[var(--color-text-muted)]">—</td></tr>
+              <tr><td class="px-4 py-3">User Content</td><td class="px-4 py-3 text-red-400">✗ No</td><td class="px-4 py-3 text-[var(--color-text-muted)]">—</td><td class="px-4 py-3 text-[var(--color-text-muted)]">—</td></tr>
+              <tr class="bg-[var(--color-surface-raised)]"><td class="px-4 py-3">Financial Info</td><td class="px-4 py-3 text-red-400">✗ No</td><td class="px-4 py-3 text-[var(--color-text-muted)]">—</td><td class="px-4 py-3 text-[var(--color-text-muted)]">—</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-4 text-sm text-[var(--color-text-muted)]"><strong class="text-[var(--color-text-secondary)]">Third-party partners:</strong> Google LLC (Firebase Analytics — anonymous aggregate usage data only).</p>
+      </section>
+
+      <!-- Footer note -->
+      <div class="border-t border-[var(--color-border)] pt-8 text-xs text-[var(--color-text-muted)] space-y-1">
+        <p>© 2026 Scott Breen · Time Zone Buddy. All rights reserved.</p>
+        <p>This privacy policy was last reviewed by the developer on 29 March 2026.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── Footer ────────────────────────────────────────────── -->
+  <footer class="bg-[var(--color-surface)] border-t border-[var(--color-border)] py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-[var(--color-text-muted)]">
+      <div class="flex items-center gap-2">
+        <img src="images/icon.png" alt="" class="w-5 h-5 rounded" aria-hidden="true" />
+        <span class="font-semibold text-[var(--color-text-secondary)]">Time Zone Buddy</span>
+      </div>
+      <nav class="flex gap-6" aria-label="Footer">
+        <a href="index.html"          class="hover:text-[var(--color-brand)] transition-colors">Home</a>
+        <a href="support.html"        class="hover:text-[var(--color-brand)] transition-colors">Support</a>
+        <a href="privacy-policy.html" class="hover:text-[var(--color-brand)] transition-colors">Privacy Policy</a>
+      </nav>
+      <p>© 2026 Scott Breen</p>
+    </div>
+  </footer>
+
+</body>
+</html>
