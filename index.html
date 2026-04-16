@@ -13,9 +13,19 @@
   <!-- Open Graph -->
   <meta property="og:title" content="Time Zone Buddy — Know the time. Everywhere." />
   <meta property="og:description" content="Aurora-inspired zone cards, intelligent scheduling, and DST alerts — all on your device. Zero data collected." />
-  <meta property="og:image" content="images/og-image.png" />
+  <meta property="og:image" content="https://tzbuddy.app/images/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tzbuddy.app/" />
+  <meta property="og:site_name" content="Time Zone Buddy" />
   <link rel="canonical" href="https://tzbuddy.app/" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Time Zone Buddy — Know the time. Everywhere." />
+  <meta name="twitter:description" content="Aurora-inspired zone cards, intelligent scheduling, and DST alerts — all on your device. Zero data collected." />
+  <meta name="twitter:image" content="https://tzbuddy.app/images/og-image.png" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -65,19 +75,82 @@
 
   <!-- Structured Data -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Time Zone Buddy",
-    "operatingSystem": "iOS, iPadOS, macOS",
-    "applicationCategory": "ProductivityApplication",
-    "offers": [
-      { "@type": "Offer", "price": "0",     "priceCurrency": "AUD", "name": "Free" },
-      { "@type": "Offer", "price": "39.99", "priceCurrency": "AUD", "name": "Lifetime" },
-      { "@type": "Offer", "price": "14.99", "priceCurrency": "AUD", "name": "Plus Annual" }
-    ],
-    "description": "Aurora-inspired, privacy-first time zone tracker for iOS and Mac."
-  }
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Time Zone Buddy",
+      "url": "https://tzbuddy.app/",
+      "downloadUrl": "https://apps.apple.com/us/app/time-zone-buddy/id6760805989",
+      "operatingSystem": "iOS 16+, iPadOS 16+, macOS 13+",
+      "applicationCategory": "ProductivityApplication",
+      "applicationSubCategory": "Time Management",
+      "softwareVersion": "1.0",
+      "description": "Aurora-inspired, privacy-first time zone tracker for iOS and Mac. Track multiple time zones with beautiful daylight-aware zone cards, plan meetings with the Meeting Overlap finder, get DST alerts, and never miss a clock change. Groups, iCloud Sync, Public Holidays, and Lifetime purchase available.",
+      "featureList": "Time zone tracking, Aurora zone cards, Daylight arc display, Time shift planner, Meeting overlap finder, DST alerts and notifications, Groups, iCloud Sync, Public holidays, Share exports, VoiceOver, Dynamic Type, Reduce Motion",
+      "screenshot": "https://tzbuddy.app/images/og-image.png",
+      "author": {
+        "@type": "Person",
+        "name": "Scott Breen"
+      },
+      "offers": [
+        { "@type": "Offer", "price": "0",     "priceCurrency": "AUD", "name": "Free" },
+        { "@type": "Offer", "price": "39.99", "priceCurrency": "AUD", "name": "Lifetime" },
+        { "@type": "Offer", "price": "14.99", "priceCurrency": "AUD", "name": "Plus Annual" }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does the free version include?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Up to 5 time zones, the full aurora zone card display (including daylight, sunrise/sunset, and work hours), and the time-shift planner. Ads are shown on the home and detail screens. Groups, Meeting Overlap, DST alerts, public holidays, notifications, and exports require Lifetime or Plus." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Lifetime? Is it really a one-time purchase?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Lifetime option ($39.99 AUD) unlocks everything except iCloud Sync with a single purchase. No subscription, no renewal. You keep all current features forever on iOS, iPadOS, and macOS." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why doesn't Lifetime include iCloud Sync?",
+          "acceptedAnswer": { "@type": "Answer", "text": "iCloud Sync is an active, continuously running service that keeps your zones and groups in sync across your supported Apple devices. Because it requires ongoing maintenance, it's the one feature that honestly belongs with a subscription. Everything else is a one-time unlock." }
+        },
+        {
+          "@type": "Question",
+          "name": "What does Plus include that Lifetime doesn't?",
+          "acceptedAnswer": { "@type": "Answer", "text": "iCloud Sync (your zones appear instantly on every supported Apple device you own), Family Sharing with the Annual plan (up to 5 family members), and early access to new features. If iCloud Sync or Family Sharing matters to you, Plus Annual is the right choice. If you prefer owning your software outright, Lifetime is the better deal." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Plus include Family Sharing?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Annual plan includes Family Sharing for up to 5 family members via App Store Family Sharing. The Monthly plan does not include Family Sharing. Lifetime does not include Family Sharing." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data private?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Time Zone Buddy has no servers, no accounts, and no analytics. Everything stays on your device. If you enable iCloud Sync (Plus only), your data is stored in your personal iCloud account, not ours. We never see it." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do DST alerts work?",
+          "acceptedAnswer": { "@type": "Answer", "text": "When a tracked timezone has an upcoming daylight saving change within 7 days, a banner appears at the top of the Home screen (Lifetime/Plus only). If you enable notifications, you'll receive push alerts at 7 days before, the business day before, the morning of the change, and the day after, all scheduled on-device." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Meeting Overlap?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Meeting Overlap finds the best time window to meet across any number of timezones. It calculates which time slots overlap with the work hours of the most people in your tracked zones, ranks them, and shows local times for each zone. Share the result as a clean image or text. Requires Lifetime or Plus." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I restore a purchase?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Open Time Zone Buddy, go to Settings, then tap Restore Purchases. Your Lifetime or Plus subscription will be restored automatically using your Apple ID." }
+        }
+      ]
+    }
+  ]
   </script>
 
   <style>
@@ -502,47 +575,107 @@
   <section id="faq" class="max-w-3xl mx-auto px-4 sm:px-6 py-24">
     <h2 class="text-3xl md:text-4xl font-bold text-center text-[var(--color-text-primary)] mb-12">Frequently asked questions</h2>
 
-    <div x-data="faqAccordion" class="space-y-3">
+    <!-- Static HTML accordion — text in DOM for SEO and AI crawler discoverability -->
+    <div x-data="{ open: null }" class="space-y-3">
 
-      <template x-for="(q, i) in [
-        { q: 'What does the free version include?',
-          a: 'Up to 5 time zones, the full aurora zone card display (including daylight, sunrise/sunset, and work hours), and the time-shift planner. Ads are shown on the home and detail screens. Groups, Meeting Overlap, DST alerts, public holidays, notifications, and exports require Lifetime or Plus.' },
-        { q: 'What is Lifetime? Is it really a one-time purchase?',
-          a: 'Yes. The Lifetime option ($39.99 AUD) unlocks everything except iCloud Sync with a single purchase. No subscription, no renewal. You keep all current features forever on iOS, iPadOS, and macOS.' },
-        { q: 'Why doesn\'t Lifetime include iCloud Sync?',
-          a: 'iCloud Sync is an active, continuously running service — it keeps your zones and groups in sync across your supported Apple devices. Because it requires ongoing maintenance, it\'s the one feature that honestly belongs with a subscription. Everything else is a one-time unlock.' },
-        { q: 'What does Plus include that Lifetime doesn\'t?',
-          a: 'iCloud Sync (your zones appear instantly on every supported Apple device you own), Family Sharing with the Annual plan (up to 5 family members), and early access to new features. If iCloud Sync or Family Sharing matters to you, Plus Annual is the right choice. If you prefer owning your software outright, Lifetime is the better deal.' },
-        { q: 'Does Plus include Family Sharing?',
-          a: 'Yes — the Annual plan includes Family Sharing for up to 5 family members via App Store Family Sharing. The Monthly plan does not include Family Sharing. Lifetime does not include Family Sharing.' },
-        { q: 'Is my data private?',
-          a: 'Yes. Time Zone Buddy has no servers, no accounts, and no analytics. Everything stays on your device. If you enable iCloud Sync (Plus only), your data is stored in your personal iCloud account — not ours. We never see it.' },
-        { q: 'How do DST alerts work?',
-          a: 'When a tracked timezone has an upcoming daylight saving change within 7 days, a banner appears at the top of the Home screen (Lifetime/Plus only). If you enable notifications, you\'ll receive push alerts at 7 days before, the business day before, the morning of the change, and the day after — all scheduled on-device.' },
-        { q: 'What is Meeting Overlap?',
-          a: 'Meeting Overlap finds the best time window to meet across any number of timezones. It calculates which time slots overlap with the work hours of the most people in your tracked zones, ranks them, and shows local times for each zone. Share the result as a clean image or text. Requires Lifetime or Plus.' },
-        { q: 'How do I restore a purchase?',
-          a: 'Open Time Zone Buddy → Settings → Restore Purchases. Your Lifetime or Plus subscription will be restored automatically using your Apple ID.' }
-      ]" :key="i">
-        <div class="border border-[var(--color-border)] rounded-xl overflow-hidden">
-          <button @click="toggle(i)"
-                  :aria-expanded="open === i ? 'true' : 'false'"
-                  :aria-controls="`faq-panel-${i}`"
-                  class="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-[var(--color-text-primary)] hover:bg-[var(--color-surface-raised)] transition-colors">
-            <span x-text="q.q"></span>
-            <svg class="w-4 h-4 text-[var(--color-text-muted)] transition-transform"
-                 :class="open === i ? 'rotate-180' : ''"
-                 fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </button>
-          <div :id="`faq-panel-${i}`"
-               x-show="open === i" x-transition
-               class="px-5 pb-4 text-sm text-[var(--color-text-secondary)]"
-               x-text="q.a">
-          </div>
+      <div class="border border-[var(--color-border)] rounded-xl overflow-hidden">
+        <button @click="open = open === 0 ? null : 0" :aria-expanded="open === 0 ? 'true' : 'false'" aria-controls="faq-panel-0"
+                class="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-[var(--color-text-primary)] hover:bg-[var(--color-surface-raised)] transition-colors">
+          <span>What does the free version include?</span>
+          <svg class="w-4 h-4 text-[var(--color-text-muted)] transition-transform" :class="open === 0 ? 'rotate-180' : ''" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="faq-panel-0" x-show="open === 0" x-transition class="px-5 pb-4 text-sm text-[var(--color-text-secondary)]">
+          Up to 5 time zones, the full aurora zone card display (including daylight, sunrise/sunset, and work hours), and the time-shift planner. Ads are shown on the home and detail screens. Groups, Meeting Overlap, DST alerts, public holidays, notifications, and exports require Lifetime or Plus.
         </div>
-      </template>
+      </div>
+
+      <div class="border border-[var(--color-border)] rounded-xl overflow-hidden">
+        <button @click="open = open === 1 ? null : 1" :aria-expanded="open === 1 ? 'true' : 'false'" aria-controls="faq-panel-1"
+                class="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-[var(--color-text-primary)] hover:bg-[var(--color-surface-raised)] transition-colors">
+          <span>What is Lifetime? Is it really a one-time purchase?</span>
+          <svg class="w-4 h-4 text-[var(--color-text-muted)] transition-transform" :class="open === 1 ? 'rotate-180' : ''" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="faq-panel-1" x-show="open === 1" x-transition class="px-5 pb-4 text-sm text-[var(--color-text-secondary)]">
+          Yes. The Lifetime option ($39.99 AUD) unlocks everything except iCloud Sync with a single purchase. No subscription, no renewal. You keep all current features forever on iOS, iPadOS, and macOS.
+        </div>
+      </div>
+
+      <div class="border border-[var(--color-border)] rounded-xl overflow-hidden">
+        <button @click="open = open === 2 ? null : 2" :aria-expanded="open === 2 ? 'true' : 'false'" aria-controls="faq-panel-2"
+                class="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-[var(--color-text-primary)] hover:bg-[var(--color-surface-raised)] transition-colors">
+          <span>Why doesn't Lifetime include iCloud Sync?</span>
+          <svg class="w-4 h-4 text-[var(--color-text-muted)] transition-transform" :class="open === 2 ? 'rotate-180' : ''" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="faq-panel-2" x-show="open === 2" x-transition class="px-5 pb-4 text-sm text-[var(--color-text-secondary)]">
+          iCloud Sync is an active, continuously running service — it keeps your zones and groups in sync across your supported Apple devices. Because it requires ongoing maintenance, it's the one feature that honestly belongs with a subscription. Everything else is a one-time unlock.
+        </div>
+      </div>
+
+      <div class="border border-[var(--color-border)] rounded-xl overflow-hidden">
+        <button @click="open = open === 3 ? null : 3" :aria-expanded="open === 3 ? 'true' : 'false'" aria-controls="faq-panel-3"
+                class="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-[var(--color-text-primary)] hover:bg-[var(--color-surface-raised)] transition-colors">
+          <span>What does Plus include that Lifetime doesn't?</span>
+          <svg class="w-4 h-4 text-[var(--color-text-muted)] transition-transform" :class="open === 3 ? 'rotate-180' : ''" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="faq-panel-3" x-show="open === 3" x-transition class="px-5 pb-4 text-sm text-[var(--color-text-secondary)]">
+          iCloud Sync (your zones appear instantly on every supported Apple device you own), Family Sharing with the Annual plan (up to 5 family members), and early access to new features. If iCloud Sync or Family Sharing matters to you, Plus Annual is the right choice. If you prefer owning your software outright, Lifetime is the better deal.
+        </div>
+      </div>
+
+      <div class="border border-[var(--color-border)] rounded-xl overflow-hidden">
+        <button @click="open = open === 4 ? null : 4" :aria-expanded="open === 4 ? 'true' : 'false'" aria-controls="faq-panel-4"
+                class="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-[var(--color-text-primary)] hover:bg-[var(--color-surface-raised)] transition-colors">
+          <span>Does Plus include Family Sharing?</span>
+          <svg class="w-4 h-4 text-[var(--color-text-muted)] transition-transform" :class="open === 4 ? 'rotate-180' : ''" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="faq-panel-4" x-show="open === 4" x-transition class="px-5 pb-4 text-sm text-[var(--color-text-secondary)]">
+          Yes — the Annual plan includes Family Sharing for up to 5 family members via App Store Family Sharing. The Monthly plan does not include Family Sharing. Lifetime does not include Family Sharing.
+        </div>
+      </div>
+
+      <div class="border border-[var(--color-border)] rounded-xl overflow-hidden">
+        <button @click="open = open === 5 ? null : 5" :aria-expanded="open === 5 ? 'true' : 'false'" aria-controls="faq-panel-5"
+                class="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-[var(--color-text-primary)] hover:bg-[var(--color-surface-raised)] transition-colors">
+          <span>Is my data private?</span>
+          <svg class="w-4 h-4 text-[var(--color-text-muted)] transition-transform" :class="open === 5 ? 'rotate-180' : ''" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="faq-panel-5" x-show="open === 5" x-transition class="px-5 pb-4 text-sm text-[var(--color-text-secondary)]">
+          Yes. Time Zone Buddy has no servers, no accounts, and no analytics. Everything stays on your device. If you enable iCloud Sync (Plus only), your data is stored in your personal iCloud account — not ours. We never see it.
+        </div>
+      </div>
+
+      <div class="border border-[var(--color-border)] rounded-xl overflow-hidden">
+        <button @click="open = open === 6 ? null : 6" :aria-expanded="open === 6 ? 'true' : 'false'" aria-controls="faq-panel-6"
+                class="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-[var(--color-text-primary)] hover:bg-[var(--color-surface-raised)] transition-colors">
+          <span>How do DST alerts work?</span>
+          <svg class="w-4 h-4 text-[var(--color-text-muted)] transition-transform" :class="open === 6 ? 'rotate-180' : ''" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="faq-panel-6" x-show="open === 6" x-transition class="px-5 pb-4 text-sm text-[var(--color-text-secondary)]">
+          When a tracked timezone has an upcoming daylight saving change within 7 days, a banner appears at the top of the Home screen (Lifetime/Plus only). If you enable notifications, you'll receive push alerts at 7 days before, the business day before, the morning of the change, and the day after — all scheduled on-device.
+        </div>
+      </div>
+
+      <div class="border border-[var(--color-border)] rounded-xl overflow-hidden">
+        <button @click="open = open === 7 ? null : 7" :aria-expanded="open === 7 ? 'true' : 'false'" aria-controls="faq-panel-7"
+                class="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-[var(--color-text-primary)] hover:bg-[var(--color-surface-raised)] transition-colors">
+          <span>What is Meeting Overlap?</span>
+          <svg class="w-4 h-4 text-[var(--color-text-muted)] transition-transform" :class="open === 7 ? 'rotate-180' : ''" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="faq-panel-7" x-show="open === 7" x-transition class="px-5 pb-4 text-sm text-[var(--color-text-secondary)]">
+          Meeting Overlap finds the best time window to meet across any number of timezones. It calculates which time slots overlap with the work hours of the most people in your tracked zones, ranks them, and shows local times for each zone. Share the result as a clean image or text. Requires Lifetime or Plus.
+        </div>
+      </div>
+
+      <div class="border border-[var(--color-border)] rounded-xl overflow-hidden">
+        <button @click="open = open === 8 ? null : 8" :aria-expanded="open === 8 ? 'true' : 'false'" aria-controls="faq-panel-8"
+                class="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-[var(--color-text-primary)] hover:bg-[var(--color-surface-raised)] transition-colors">
+          <span>How do I restore a purchase?</span>
+          <svg class="w-4 h-4 text-[var(--color-text-muted)] transition-transform" :class="open === 8 ? 'rotate-180' : ''" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="faq-panel-8" x-show="open === 8" x-transition class="px-5 pb-4 text-sm text-[var(--color-text-secondary)]">
+          Open Time Zone Buddy → Settings → Restore Purchases. Your Lifetime or Plus subscription will be restored automatically using your Apple ID.
+        </div>
+      </div>
 
     </div>
 
